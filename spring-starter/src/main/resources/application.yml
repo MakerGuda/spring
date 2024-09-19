@@ -1,16 +1,5 @@
 spring:
   application:
-    name: spring
+    name: spring  # 应用名称
   profiles:
-    active: dev
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/spring
-    username: root
-    password: 123456
-
-mybatis-plus:
-  mapper-locations: classpath*:/mappers/*.xml
-  configuration:
-    map-underscore-to-camel-case: true
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    active: dev   # 激活配置
