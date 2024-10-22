@@ -42,4 +42,55 @@ public class CommonResult<T> {
         return new CommonResult<>(ResultCode.SUCCESS.getCode(), message, data);
     }
 
+    /**
+     * 失败返回结果
+     *
+     * @param errorCode 错误码
+     */
+    public static <T> CommonResult<T> failed(IErrorCode errorCode) {
+        return new CommonResult<T>(errorCode.getCode(), errorCode.getMessage(), null);
+    }
+
+    /**
+     * 失败返回结果
+     *
+     * @param errorCode 错误码
+     * @param message   错误信息
+     */
+    public static <T> CommonResult<T> failed(IErrorCode errorCode, String message) {
+        return new CommonResult<T>(errorCode.getCode(), message, null);
+    }
+
+    /**
+     * 失败返回结果
+     *
+     * @param message 提示信息
+     */
+    public static <T> CommonResult<T> failed(String message) {
+        return new CommonResult<T>(ResultCode.FAILED.getCode(), message, null);
+    }
+
+    /**
+     * 失败返回结果
+     */
+    public static <T> CommonResult<T> failed() {
+        return failed(ResultCode.FAILED);
+    }
+
+    /**
+     * 参数验证失败返回结果
+     */
+    public static <T> CommonResult<T> validateFailed() {
+        return failed(ResultCode.VALIDATE_FAILED);
+    }
+
+    /**
+     * 参数验证失败返回结果
+     *
+     * @param message 提示信息
+     */
+    public static <T> CommonResult<T> validateFailed(String message) {
+        return new CommonResult<T>(ResultCode.VALIDATE_FAILED.getCode(), message, null);
+    }
+
 }
