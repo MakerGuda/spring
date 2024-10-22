@@ -1,4 +1,8 @@
 spring:
+  messages:
+    basename: messages
+    encoding: UTF-8
+    always-use-message-format: true
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver  # 数据库驱动
     url: jdbc:mysql://127.0.0.1:3306/spring   # 数据库链接url
