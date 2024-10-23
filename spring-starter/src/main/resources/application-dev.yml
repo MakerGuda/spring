@@ -1,6 +1,6 @@
 spring:
   messages:
-    basename: messages
+    basename: i18n/messages
     encoding: UTF-8   # 国际化字符编码
     always-use-message-format: true
   datasource:
