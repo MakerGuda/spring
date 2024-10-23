@@ -22,7 +22,9 @@ public enum ResultCode implements IErrorCode {
     /**
      * 没有相关权限
      */
-    FORBIDDEN(403, "没有相关权限");
+    FORBIDDEN(403, "没有相关权限"),
+
+    ERR_CANNOT_FIND_DATA_BY_ID(1000, "根据id找不到数据");
 
     private final Long code;
 

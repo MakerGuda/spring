@@ -3,7 +3,9 @@ package com.spring.service.impl;
 import com.baomidou.mybatisplus.extension.conditions.query.LambdaQueryChainWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.spring.api.CommonPage;
+import com.spring.api.ResultCode;
 import com.spring.entity.User;
+import com.spring.exception.ApiException;
 import com.spring.mapper.UserMapper;
 import com.spring.service.UserService;
 import com.spring.service.convert.UserConvert;
@@ -16,7 +18,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.util.Assert;
 
 import java.util.List;
 import java.util.Objects;
@@ -48,7 +49,9 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDetailRes getDetailById(Long id) {
         User user = userMapper.selectById(id);
-        Assert.notNull(user, "当前id无法找到匹配的用户信息");
+        if (Objects.isNull(user)) {
+            throw new ApiException(ResultCode.ERR_CANNOT_FIND_DATA_BY_ID, "当前id无法找到匹配的用户信息");
+        }
         return userConvert.convert(user);
     }
 
