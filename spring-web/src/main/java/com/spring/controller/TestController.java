@@ -1,8 +1,9 @@
-package com.spring;
+package com.spring.controller;
 
 import com.spring.api.CommonResult;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,6 +16,7 @@ public class TestController {
     @Value("${server.url}")
     private String url;
 
+    @CrossOrigin
     @GetMapping("nacos")
     public CommonResult<String> nacos() {
         return CommonResult.success(url);

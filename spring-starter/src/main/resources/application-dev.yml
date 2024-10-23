@@ -1,14 +1,16 @@
 spring:
   messages:
-    basename: messages
-    encoding: UTF-8
+    basename: i18n/messages
+    encoding: UTF-8   # 国际化字符编码
     always-use-message-format: true
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver  # 数据库驱动
     url: jdbc:mysql://127.0.0.1:3306/spring   # 数据库链接url
     username: root  # 数据库连接用户名
     password: 123456  # 数据库密码
+    type: com.alibaba.druid.pool.DruidDataSource
     druid:
+      enable: true
       initial-size: 5 #   初始化大小
       min-idle: 10 # 最小连接数
       max-active: 20 # 最大连接数
@@ -18,8 +20,6 @@ spring:
           log-slow-sql: true  # 是否开启慢sql记录
           slow-sql-millis: 5000 # 定义慢sql的时长
           merge-sql: false # 是否合并多个连接池的监控数据
-      enable: true
-    type: com.alibaba.druid.pool.DruidDataSource
   data:
     redis:
       database: 0
@@ -34,9 +34,15 @@ spring:
           max-idle: 8
           max-wait: -1
           min-idle: 0
+  lifecycle:
+    timeout-per-shutdown-phase: "30s"   # 优雅停机超时时间
 
 mybatis-plus:
   mapper-locations: classpath*:/mappers/*.xml   # mapper.xml文件地址
   configuration:
     map-underscore-to-camel-case: true
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl   # 日志打印方式
+
+server:
+  port: 8080  # 端口号
+  shutdown: graceful  # 优雅停机

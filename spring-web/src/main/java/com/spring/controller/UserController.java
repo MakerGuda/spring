@@ -1,4 +1,4 @@
-package com.spring;
+package com.spring.controller;
 
 import com.spring.api.CommonPage;
 import com.spring.api.CommonResult;
