@@ -1,12 +1,14 @@
 package com.spring.service;
 
+import com.baomidou.mybatisplus.extension.service.IService;
 import com.spring.api.CommonPage;
+import com.spring.entity.User;
 import dto.req.UserCreateReq;
 import dto.req.UserListReq;
 import dto.res.UserDetailRes;
 import dto.res.UserListRes;
 
-public interface UserService {
+public interface UserService extends IService<User> {
 
     /**
      * 新增用户

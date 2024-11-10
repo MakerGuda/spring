@@ -48,5 +48,4 @@ public class CommonPage<T> {
         return result;
     }
 
-
 }
