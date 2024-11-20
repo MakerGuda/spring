@@ -1,4 +1,4 @@
-package dto.req;
+package com.spring.dto.req;
 
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;

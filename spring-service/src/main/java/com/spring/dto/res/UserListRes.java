@@ -1,11 +1,11 @@
-package dto.res;
+package com.spring.dto.res;
 
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class UserDetailRes {
+public class UserListRes {
 
     /**
      * 主键
@@ -51,10 +51,5 @@ public class UserDetailRes {
      * 更新时间
      */
     private Long updateTime;
-
-    /**
-     * 版本号
-     */
-    private Long version;
 
 }
