@@ -1,10 +1,10 @@
-package com.spring.service.convert;
+package com.spring.convert;
 
 import cn.hutool.crypto.digest.DigestUtil;
 import com.spring.entity.User;
-import dto.req.UserCreateReq;
-import dto.res.UserDetailRes;
-import dto.res.UserListRes;
+import com.spring.dto.req.UserCreateReq;
+import com.spring.dto.res.UserDetailRes;
+import com.spring.dto.res.UserListRes;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

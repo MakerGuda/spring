@@ -1,35 +1,35 @@
-package dto.req;
+package com.spring.dto.res;
 
-import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class UserCreateReq {
+public class UserDetailRes {
+
+    /**
+     * 主键
+     */
+    private Long id;
 
     /**
      * 用户名
      */
-    @NotBlank(message = "用户名不能为空")
     private String name;
 
     /**
      * 手机号
      */
-    @NotBlank(message = "手机号不能为空")
     private String mobile;
 
     /**
      * 邮箱
      */
-    @NotBlank(message = "邮箱不能为空")
     private String email;
 
     /**
      * 密码
      */
-    @NotBlank(message = "密码不能为空")
     private String password;
 
     /**
@@ -41,5 +41,20 @@ public class UserCreateReq {
      * 状态 1:启用 0:禁用
      */
     private Integer status;
+
+    /**
+     * 创建时间
+     */
+    private Long createTime;
+
+    /**
+     * 更新时间
+     */
+    private Long updateTime;
+
+    /**
+     * 版本号
+     */
+    private Long version;
 
 }
