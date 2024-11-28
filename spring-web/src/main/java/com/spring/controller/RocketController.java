@@ -5,6 +5,8 @@ import com.spring.entity.User;
 import jakarta.annotation.Resource;
 import org.apache.rocketmq.spring.core.RocketMQTemplate;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.messaging.Message;
+import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,7 +26,8 @@ public class RocketController {
         User user = new User();
         user.setId(1L);
         user.setName("spring");
-        rocketMQTemplate.syncSend(topic, user);
+        Message<User> message = MessageBuilder.withPayload(user).build();
+        rocketMQTemplate.convertAndSend(topic, message);
         return CommonResult.success(null);
     }
 
